@@ -1,0 +1,97 @@
+
+:root {
+  --bg-hero: #1e201e;
+  --bg-main: #3c3d37;
+  --bg-contact: #697565;
+  --heading: #ecdfcc;
+  --text: #ffffff;
+  --nav-text: #dcd7c9;
+  --pill: rgba(255, 255, 255, 0.1);
+  --card: rgba(217, 217, 217, 0.2);
+
+  --font-head: "Angkor", Georgia, serif;
+  --font-body: "Prompt", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg-main);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 80px 20px 40px;
+  background: var(--bg-hero);
+  text-align: center;
+}
+
+.HeroName {
+  font-family: var(--font-head);
+  font-size: 52px;
+  line-height: 1.1;
+  color: var(--heading);
+}
+
+.heroBtn {
+  padding: 8px 24px;
+  border-radius: 100px;
+  font-size: 14px;
+  background: linear-gradient(90deg, rgba(128, 128, 128, 0.35), rgba(26, 26, 26, 0.15));
+  transition: transform 0.2s ease;
+}
+
+.heroBtn:hover {
+  transform: translateY(2px);
+}
+
+.heroSocial {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--heading);
+}
+
+.heroSocial a {
+  padding: 4px;
+}
