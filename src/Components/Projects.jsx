@@ -1,6 +1,22 @@
+import { motion } from "motion/react";
+
+const revealUp = {
+  initial: { opacity: 0, y: 56, filter: "blur(10px)" },
+  whileInView: { opacity: 1, y: 0, filter: "blur(0px)" },
+  viewport: { once: false, amount: 0.2 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+};
+
 function Projects() {
   return (
-    <section className="sectionMain" id="projects">
+    <motion.section
+      className="sectionMain"
+      id="projects"
+      initial={revealUp.initial}
+      whileInView={revealUp.whileInView}
+      viewport={revealUp.viewport}
+      transition={revealUp.transition}
+    >
       <div className="container">
         <h2 className="sectionTitle">PROJECTS</h2>
         <hr className="rule" />
@@ -8,7 +24,7 @@ function Projects() {
         <article className="project">
           <img
             className="projectImg"
-            src="/images/bake-it-happen.png"
+            src="/Project1-Screenshot.png"
             alt="Screenshot of Bake It Happen"
           />
           <div className="projectBody">
@@ -25,12 +41,8 @@ function Projects() {
           </footer>
         </article>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
 export default Projects;
-
-
-
-  

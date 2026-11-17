@@ -1,6 +1,22 @@
+import { motion } from "motion/react";
+
+const revealUp = {
+  initial: { opacity: 0, y: 56, filter: "blur(10px)" },
+  whileInView: { opacity: 1, y: 0, filter: "blur(0px)" },
+  viewport: { once: false, amount: 0.2 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+};
+
 function TechStack() {
   return (
-    <section className="techSectionMain" id="tech">
+    <motion.section
+      className="techSectionMain"
+      id="tech"
+      initial={revealUp.initial}
+      whileInView={revealUp.whileInView}
+      viewport={revealUp.viewport}
+      transition={revealUp.transition}
+    >
       <div className="container">
         <h2 className="techSectionTitle">TECH STACK &amp; TOOLS</h2>
         <hr className="rule" />
@@ -8,19 +24,19 @@ function TechStack() {
         <h3 className="groupTitle">TECH STACK</h3>
         <ul className="pills">
           <li className="pill">
-            <img src="/icons/html.png" alt="" width="15" height="15" />
+            <img src="/html-icon.png" alt="" width="15" height="15" />
             HTML
           </li>
           <li className="pill">
-            <img src="/icons/css.png" alt="" width="15" height="15" />
+            <img src="/css-icon.png" alt="" width="15" height="15" />
             CSS
           </li>
           <li className="pill">
-            <img src="/icons/javascript.png" alt="" width="15" height="15" />
+            <img src="/js-icon.png" alt="" width="15" height="15" />
             JavaScript
           </li>
           <li className="pill">
-            <img src="/icons/react.png" alt="" width="15" height="15" />
+            <img src="/react-icon.png" alt="" width="15" height="15" />
             ReactJS
           </li>
         </ul>
@@ -28,20 +44,20 @@ function TechStack() {
         <h3 className="groupTitle">DEVELOPMENT TOOLS</h3>
         <ul className="pills">
           <li className="pill">
-            <img src="/icons/vscode.png" alt="" width="15" height="15" />
+            <img src="/vscode-Logo.png" alt="" width="15" height="15" />
             Visual Studio Code
           </li>
           <li className="pill">
-            <img src="/icons/git.png" alt="" width="15" height="15" />
+            <img src="Git-Icon.png" alt="" width="15" height="15" />
             Git
           </li>
           <li className="pill">
-            <img src="/icons/github.png" alt="" width="15" height="15" />
+            <img src="/GitHub-Logo.png" alt="" width="15" height="15" />
             Github
           </li>
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

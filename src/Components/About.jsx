@@ -1,6 +1,22 @@
+import { motion } from "motion/react";
+
+const revealUp = {
+  initial: { opacity: 0, y: 56, filter: "blur(10px)" },
+  whileInView: { opacity: 1, y: 0, filter: "blur(0px)" },
+  viewport: { once: false, amount: 0.2 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+};
+
 function About() {
   return (
-    <section className="section section--main" id="about">
+    <motion.section
+      className="section section--main"
+      id="about"
+      initial={revealUp.initial}
+      whileInView={revealUp.whileInView}
+      viewport={revealUp.viewport}
+      transition={revealUp.transition}
+    >
       <div className="container">
         <h2 className="sectionTitle">ABOUT ME</h2>
         <hr className="rule" />
@@ -8,7 +24,7 @@ function About() {
         <div className="about">
           <img
             className="aboutPhoto"
-            src="/images/profile.png"
+            src="/zean-pic.JPG"
             alt="Photo of Zean Gester Bayot"
           />
 
@@ -18,7 +34,6 @@ function About() {
 
             <ul className="tags">
               <li>WEB DEVELOPMENT</li>
-              <li>UI/UX DESIGNER</li>
               <li>STUDENT</li>
             </ul>
 
@@ -52,7 +67,7 @@ function About() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

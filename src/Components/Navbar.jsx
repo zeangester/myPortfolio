@@ -1,38 +1,52 @@
 import { useEffect, useState } from "react";
-import { navLinks } from "../data.js";
 
 function Navbar() {
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
+  function getCurrentSection() {
+    const sections = ["home", "about", "projects", "tech", "contact"];
+    const offset = 180;
+
+    for (let i = sections.length - 1; i >= 0; i -= 1) {
+      const id = sections[i];
+      const section = document.getElementById(id);
+
+      if (!section) continue;
+
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= offset && rect.bottom >= offset) {
+        return id;
+      }
+    }
+
+    return "home";
+  }
+
   useEffect(() => {
     function handleScroll() {
-      let current = "home";
-
-      navLinks.forEach((link) => {
-        const section = document.getElementById(link.id);
-
-        if (section && section.getBoundingClientRect().top <= 150) {
-          current = link.id;
-        }
-      });
-
-      setActive(current);
+      setActive(getCurrentSection());
     }
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); 
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
- 
   function toggleMenu() {
     setMenuOpen(!menuOpen);
   }
 
   function closeMenu() {
     setMenuOpen(false);
+  }
+
+  function getClass(id) {
+    if (active === id) {
+      return "active";
+    }
+    return "";
   }
 
   let navClass = "nav";
@@ -60,21 +74,39 @@ function Navbar() {
         </button>
 
         <ul className={listClass}>
-          {navLinks.map((link) => {
-            let linkClass = "";
-
-            if (active === link.id) {
-              linkClass = "active";
-            }
-
-            return (
-              <li key={link.id}>
-                <a href={"#" + link.id} className={linkClass} onClick={closeMenu}>
-                  {link.label}
-                </a>
-              </li>
-            );
-          })}
+          <li>
+            <a href="#home" className={getClass("home")} onClick={closeMenu}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" className={getClass("about")} onClick={closeMenu}>
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#projects"
+              className={getClass("projects")}
+              onClick={closeMenu}
+            >
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#tech" className={getClass("tech")} onClick={closeMenu}>
+              Tech Stack &amp; Tools
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className={getClass("contact")}
+              onClick={closeMenu}
+            >
+              Contact
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
