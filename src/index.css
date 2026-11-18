@@ -5,7 +5,7 @@
   --heading: #ecdfcc;
   --text: #ffffff;
   --nav-text: #dcd7c9;
-  --pill: rgba(255, 255, 255, 0.1);
+  --pill: rgb(255,255,255,0.1);
   --card: rgba(217, 217, 217, 0.2);
 
   --font-head: "Angkor", Georgia, serif;
@@ -44,9 +44,8 @@ html {
   max-width: 780px;
   padding: 8px 16px 8px 24px;
   border-radius: 100px;
-  background: var(--pill);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgb(30,32,30);
+  
 }
 
 .navLinks {
@@ -650,7 +649,7 @@ img {
   flex-wrap: wrap;
   gap: 8px 16px;
   min-height: 54px;
-  padding: 8px 0;
+  padding: 8px 50px;
 }
 
 @media (max-width: 768px) {
